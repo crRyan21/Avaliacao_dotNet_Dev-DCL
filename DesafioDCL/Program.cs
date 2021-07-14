@@ -24,14 +24,18 @@ class MainClass {
     Console.WriteLine("Quanto você ganha em porcentagem por cada carro vendido?");
     porcentagem = int.Parse(Console.ReadLine());
 
+    // Decidi deixar a porcentagem de maneira dinâmica ao ínves de inicía-lo fixamente como 5%
     Console.WriteLine("Qual é o valor da sua comissão fixa?");
     comissaoFixa = int.Parse(Console.ReadLine());
 
+    // Um laço de repetição que permanece conforme o número de carros que o vendedor conseguiu vender
     for(int c = 1; c <=qtdCarros; c ++){
       Console.WriteLine($"Qual o valor do {c}º carro que você vendeu?");
       valorCarro = float.Parse(Console.ReadLine());
       totalValorVendas += valorCarro;
-      comissaoVar += (valorCarro / 100 ) * porcentagem; // Ele ganha % do valor do carro
+      // Ele ganha uma determinada porcentagem em cada venda do carro
+      comissaoVar += (valorCarro / 100 ) * porcentagem;
+      // A cada nova venda o vendedor recebe a sua comissão fixa
       comissaoFixa += comissaoFixa;
     }
     salarioFinal = salario + comissaoFixa + comissaoVar;
@@ -42,3 +46,4 @@ class MainClass {
     Console.WriteLine($"Salário Final: R${salarioFinal}");
   }
 }
+// Desafio muito legal de se fazer, assim como todos. :)
